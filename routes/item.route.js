@@ -7,7 +7,7 @@ router.get('/test', item_controller.test);
 
 router.post('/', item_controller.create);
 router.get('/:id', item_controller.details);
-router.findAll('/', item_controller.details);
+router.findAll('/', item_controller.findAll);
 router.put('/:id', item_controller.update);
 router.delete('/:id', item_controller.delete);
 
