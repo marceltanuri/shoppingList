@@ -30,7 +30,7 @@ exports.details = (req, res) => {
 };
 
 exports.findAll = (req, res) => {
-    Item.find.then(items => {
+    Item.find().then(items => {
         res.send(items)
     }).catch(err => {
         res.status(500).send({message: err.message})
