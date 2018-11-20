@@ -20,7 +20,7 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use('/items', item);
 app.use('/lists', list);
 
-let port = 1234;
+let port = 3000;
 
 app.listen(port, () => {
     console.log('Server is up and running on port number ' + port);
