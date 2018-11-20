@@ -1,4 +1,5 @@
 const List = require('../models/list.model');
+const Item = require('../models/item.model');
 
 //Simple version, without validation or sanitation
 exports.test = (req, res) => {
@@ -45,8 +46,11 @@ exports.update = (req, res) => {
 };
 
 exports.delete = (req, res) => {
-    List.findOneAndDelete(req.params.id, function(err, list){
+    Item.deleteMany({list: req.params.id}, function(err){
         if (err) return next(err);
-        res.send(list)
+        List.findOneAndDelete(req.params.id, function(err, list){
+            if (err) return next(err);
+            res.send(list)
+        });
     });
 };

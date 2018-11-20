@@ -29,6 +29,14 @@ exports.details = (req, res) => {
     });
 };
 
+exports.findAll = (req, res) => {
+    Item.find.then(items => {
+        res.send(items)
+    }).catch(err => {
+        res.status(500).send({message: err.message})
+    });
+};
+
 exports.update = (req, res) => {
     Item.findOneAndUpdate(req.params.id, {$set: req.body},
         function(err, item){
